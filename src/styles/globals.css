@@ -219,3 +219,5 @@ html, body {
 @utility max-w-mobile { max-width: var(--max-w-mobile); }
 @utility min-w-100 { min-width: var(--min-w-100); }
 
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
