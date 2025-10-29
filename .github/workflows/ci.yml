@@ -23,32 +23,13 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: pnpm-lock.yaml
 
-      # 💥 캐시 초기화 단계 추가
-      - name: Clean caches
-        run: |
-          rm -rf node_modules
-          rm -rf .next
-          pnpm store prune
-
       - name: Install dependencies
         run: pnpm install
 
       - name: Build Next.js app
         run: pnpm build
 
-      # main은 Production 배포
       - name: Deploy to Vercel (Production)
-        if: github.ref == 'refs/heads/main'
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: .
-          vercel-args: '--prod --force'
-
-      # develop은 Preview 배포 (항상 새 빌드)
-      - name: Deploy to Vercel (Preview)
         if: github.ref == 'refs/heads/develop'
         uses: amondnet/vercel-action@v25
         with:
@@ -56,4 +37,4 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: .
-          vercel-args: '--force'
+          vercel-args: '--prod'
