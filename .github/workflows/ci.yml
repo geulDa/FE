@@ -3,8 +3,6 @@ name: Next.js CI/CD with Vercel
 on:
   push:
     branches: [develop, main]
-  pull_request_target:
-    branches: [develop, main]
 
 jobs:
   build-and-deploy:
