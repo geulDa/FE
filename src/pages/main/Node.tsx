@@ -1,5 +1,4 @@
 import { Header } from '@/shared/components';
-import AddressCopy from '@/shared/components/button/AddressCopy';
 import LocationCard from '@/shared/components/container/LocationCard';
 import { Icon } from '@/shared/icons';
 import { cn } from '@/shared/lib';
@@ -56,12 +55,6 @@ const Board = () => {
           description='장소에 대한 설명'
           variant='mint'
           size='large'
-        />
-
-        <AddressCopy
-          variant='mint'
-          value='인천광역시 계양구 오조산로 31길(복사되어야할 주소)'
-          label={label ? String(label) : '노드'}
         />
       </main>
     </div>
