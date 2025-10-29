@@ -1,9 +1,9 @@
 import { Header } from '@/shared/components';
+
 import Boardgame from '@/pages/main/components/board/Boardgame';
-import { useRouter } from 'next/router';
+import router from 'next/router';
 
 const Board = () => {
-  const router = useRouter();
   return (
     <div className='relative w-full h-[100vh] bg-[#46d1cd] overflow-auto'>
       <Header title='지도' onClick={() => router.back()} />
