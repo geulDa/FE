@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import { cn } from '@/shared/lib';
 import { ControlBar } from '@/shared/components';

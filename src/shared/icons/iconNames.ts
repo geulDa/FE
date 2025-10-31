@@ -11,6 +11,7 @@ export const iconNames = [
   "HeartStraight",
   "HouseSimple",
   "KakaoIcon",
+  "ListButton",
   "MapPin",
   "MapPin_",
   "NextButton",
