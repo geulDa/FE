@@ -200,11 +200,11 @@ html, body {
 @utility text-body-sm { font-size:1rem; line-height: 1.6rem; font-weight: 400; letter-spacing: 0.04em; font-family: var(--font-sans); }
 
 /* JEN Serif */
-@utility text-display-serif { font-size:3.6rem; line-height: 4.6rem; font-weight: 400; letter-spacing: 0.6em; font-family: var(--font-serif); }
-@utility text-headline-lg-serif { font-size:3.2rem; line-height: 4rem; font-weight: 400; letter-spacing: 0.2em; font-family: var(--font-serif); }
-@utility text-headline-md-serif { font-size:2.4rem; line-height: 3.2rem; font-weight: 400; letter-spacing: 0.2em; font-family: var(--font-serif); }
-@utility text-headline-sm-serif { font-size:2rem; line-height: 2.4rem; font-weight: 400; letter-spacing: 1.2rem;  font-family: var(--font-serif); }
-@utility text-label-serif { font-size:1.4rem; line-height: 2rem; font-weight: 400; letter-spacing: 0.4rem; font-family: var(--font-serif); }
+@utility text-display-serif { font-size:3.6rem; line-height: 4.6rem; font-weight: 400; letter-spacing: 0.06em; font-family: var(--font-serif); }
+@utility text-headline-lg-serif { font-size:3.2rem; line-height: 4rem; font-weight: 400; letter-spacing: 0.02em; font-family: var(--font-serif); }
+@utility text-headline-md-serif { font-size:2.4rem; line-height: 3.2rem; font-weight: 400; letter-spacing: 0.02em; font-family: var(--font-serif); }
+@utility text-headline-sm-serif { font-size:2rem; line-height: 2.4rem; font-weight: 400; letter-spacing: 0.12rem;  font-family: var(--font-serif); }
+@utility text-label-serif { font-size:1.4rem; line-height: 2rem; font-weight: 400; letter-spacing: 0.04rem; font-family: var(--font-serif); }
 
 
 /* Layout */
@@ -221,3 +221,34 @@ html, body {
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.flip-card {
+  perspective: 1000px;
+  width: 354px;
+  height: 220px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg) ;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+
+}

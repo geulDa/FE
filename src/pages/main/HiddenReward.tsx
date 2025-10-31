@@ -1,5 +1,3 @@
-'use client';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const HiddenReward = () => {
@@ -13,7 +11,11 @@ const HiddenReward = () => {
         flex flex-col justify-center items-center text-center
         overflow-hidden
       '
-      onClick={() => console.log('히든 리워드 클릭: 다음 페이지 이동')}
+      onClick={() =>
+        router.push({
+          pathname: '/main/PostCard',
+        })
+      }
     >
       <h1 className=' text-black mb-[4.5rem] text-headline-lg-serif '>
         Congrats!

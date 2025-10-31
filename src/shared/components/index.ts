@@ -9,3 +9,4 @@ export { default as EventCard } from './container/EventCard';
 export { default as AddressCopy } from './button/AddressCopy';
 export { default as CommonButton } from './button/CommonButton';
 export { BottomNav } from './tab/BottomNav';
+export { default as FlipCard } from './flipCard/FlipCard';

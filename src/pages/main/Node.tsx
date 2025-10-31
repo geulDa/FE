@@ -1,6 +1,4 @@
-import { Header } from '@/shared/components';
-import AddressCopy from '@/shared/components/button/AddressCopy';
-import LocationCard from '@/shared/components/container/LocationCard';
+import { AddressCopy, Header, LocationCard } from '@/shared/components';
 import { Icon } from '@/shared/icons';
 import { cn } from '@/shared/lib';
 import { getLocation } from '@/shared/utils/handleGetLocation';
@@ -10,7 +8,7 @@ import { useRouter } from 'next/router';
 const Board = () => {
   const router = useRouter();
   const { label } = router.query;
-  const isStamp = true;
+  const isStamp = false;
 
   return (
     <div className='relative w-full h-[100vh] overflow-auto px-[2.4rem]'>
@@ -27,19 +25,25 @@ const Board = () => {
             width={354}
             height={436}
             className={cn(
-              'w-full h-auto object-cover block rounded-[1.6rem] transition-all duration-300',
+              'w-full h-auto object-cover block rounded-[16px] transition-all duration-300',
               !isStamp && 'blur-xs brightness-90',
             )}
           />
 
           <button
             className={cn('absolute bottom-0 right-0', isStamp && 'p-[2.5rem]')}
-            onClick={() =>
-              getLocation(
-                (pos) => console.log('📍 현재 위치:', pos.coords),
-                (err) => console.error('⚠️ 위치 에러:', err.message),
-                //TODO : 리워드 페이지로 이동 , 위치 에러일경우 모달창
-              )
+            onClick={
+              !isStamp
+                ? () => {
+                    getLocation(
+                      (pos) => console.log('📍 현재 위치:', pos.coords),
+                      (err) => console.error('⚠️ 위치 에러:', err.message),
+                    );
+                    router.push({
+                      pathname: '/main/HiddenReward',
+                    });
+                  }
+                : undefined
             }
           >
             <Icon
