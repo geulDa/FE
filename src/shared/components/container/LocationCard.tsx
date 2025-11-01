@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Icon } from '@/shared/icons';
 import { Card } from '@/shared/components/container/Card';
 import { cn } from '@/shared/lib';
@@ -20,6 +21,11 @@ const LocationCard = ({
   size = 'medium',
   imageSrc = '',
 }: LocationCardProps) => {
+  const [liked, setLiked] = useState(false);
+
+  const handleLikeClick = () => {
+    setLiked((prev) => !prev);
+  };
   return (
     <Card variant={variant} size={size}>
       {/* Medium 카드 */}
@@ -84,7 +90,16 @@ const LocationCard = ({
               <Icon
                 name='HeartStraight'
                 size={20}
-                color={variant === 'mint' ? 'mint-400' : 'gray-300'}
+                color={
+                  liked
+                    ? 'red-400'
+                    : variant === 'mint'
+                    ? 'mint-400'
+                    : 'gray-300'
+                }
+                fillColor={liked ? 'red-300' : undefined}
+                onClick={handleLikeClick}
+                className='cursor-pointer'
               />
             </div>
           </div>
