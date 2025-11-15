@@ -4,7 +4,7 @@ import { Card } from '@/shared/components/container/Card';
 import { cn } from '@/shared/lib';
 import Image from 'next/image';
 import { useBookmark } from '@/shared/hooks/events/useBookmark';
-import LoginRequired from '@/pages/mypage/components/LoginRequired';
+import LoginRequired from '@/shared/components/mypage/LoginRequired';
 
 interface EventCardProps {
   eventId: number;

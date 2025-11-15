@@ -5,8 +5,8 @@ import { useRouter } from 'next/router';
 import type { AxiosError } from 'axios';
 import ProfilePhoto from '@/pages/mypage/components/ProfilePhoto';
 import PostcardContainer from '@/pages/mypage/components/PostcardContainer';
-import LoginRequired from '@/pages/mypage/components/LoginRequired';
-import LogoutConfirm from '@/pages/mypage/components/LogoutConfirm';
+import LoginRequired from '@/shared/components/mypage/LoginRequired';
+import LogoutConfirm from '@/shared/components/mypage/LogoutConfirm';
 import { EventCard, BottomNav } from '@/shared/components';
 import { useUserStatus } from '@/shared/hooks/useUserStatus';
 import { usePopup } from '@/shared/hooks/mypage/usePopup';
@@ -14,7 +14,7 @@ import { useMyPageQuery } from '@/shared/api/member';
 
 export default function MyPage() {
   const { isLoggedIn } = useUserStatus();
-  const router = useRouter(); 
+  const router = useRouter();
   const {
     showLoginPopup,
     showLogoutPopup,
