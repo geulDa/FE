@@ -1,3 +1,6 @@
+// 🔥 Next.js 16에서 Turbopack 비활성화 공식 방식
+export const buildMode = "webpack";
+
 import path from 'path';
 import type { NextConfig } from 'next';
 import withPWA from 'next-pwa';
@@ -18,12 +21,6 @@ const baseConfig: NextConfig = {
   },
 
   images: {
-    domains: [
-      'geulda-ai-video-bucket.s3.ap-southeast-2.amazonaws.com',
-      'example.com',
-      'www.bucheon.go.kr',
-      'www.bcf.or.kr',
-    ],
     remotePatterns: [
       { protocol: 'https', hostname: 'mblogthumb-phinf.pstatic.net' },
       { protocol: 'https', hostname: 'blogfiles.pstatic.net' },
@@ -32,6 +29,7 @@ const baseConfig: NextConfig = {
     ],
   },
 
+  // 이 webpack 설정이 존재하면 Next 16은 Turbopack 대신 Webpack 빌드 사용
   webpack: (config) => {
     const svgRule = config.module.rules.find(
       // @ts-ignore
@@ -58,7 +56,7 @@ const baseConfig: NextConfig = {
     });
 
     return config;
-  },
+  }
 };
 
 const withPWABundle = withPWA({
